@@ -1,18 +1,14 @@
-let number1 = randint(1, 6 )
-let number2 = randint(1, 6)
-let number3 = randint(1, 6)
 
-input.onGesture(Gesture.Shake, function() {
-    while (number1 == 6, number2 == 6, number3 == 6 ){
-        whaleysans.showNumber(number1)
-        basic.pause(1000)
-        whaleysans.showNumber(number2)
-        basic.pause(1000)
-        whaleysans.showNumber(number3)
-        basic.pause(1000)
-        
+let pocet = 0;
+input.onGesture(Gesture.Shake, function () {
+    let cislo = Math.randomRange(1, 6);
+    whaleysans.showNumber(cislo);
+
+    if (cislo == 6) {
+        pocet += 1;
     }
-    if(true){
-        music.playTone(Note.D, music.beat(BeatFraction.Whole))
+    if (pocet == 3) {
+        music.playTone(Note.D, music.beat(BeatFraction.Whole));
+        basic.showNumber(cislo)
     }
-})
+});
